@@ -13,34 +13,48 @@
 <header>
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">L'évènement qui luit !</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <form class="d-flex justify-content-center" role="search">
+    <div  class="navbar-brand">
+      <%=link_to "L'évènement qui luit !", root_path %>
+    </div>
+
+<!--    <form class="d-flex justify-content-center" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-
+    </form> -->
+    
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Link
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled">Link</a>
-        </li>
+        <% if user_signed_in? %>
+          <li class="nav-item ms-5">
+            <%= button_to "Créer un évennement", new_user_session_path%>
+          </li>
+          <li class="nav-item  ms-5 text-white">
+            <%= current_user.email%> est connecté.
+          </li>
+          <li class="nav-item bg-dark ms-5">
+            <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %>
+          </li>
+
+       <!-- <li class="nav-item  ms-3">
+            <%= link_to "Secret page", static_pages_secret_path %>
+          </li> -->
+
+          <li class="nav-item  ms-5">
+            <%= link_to "Editer vos accès", edit_user_registration_path %>
+          </li>
+
+        <% else %>
+          <li class="nav-item ms-5">
+            <%= button_to "Créer un évennement", new_user_session_path%>
+          </li>
+          <li class="nav-item ms-5">
+            <%= link_to "Inscription", new_user_registration_path %>
+          </li>
+
+          <li class="nav-item  ms-5">    
+            <%= link_to "Connexion", new_user_session_path %>
+          </li>
+        <% end %>
       </ul>
       
     </div>
