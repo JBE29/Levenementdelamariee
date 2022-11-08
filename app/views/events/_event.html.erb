@@ -1,32 +1,11 @@
-<div id="<%= dom_id event %>">
-  <p>
-    <strong>Start date:</strong>
-    <%= event.start_date %>
-  </p>
+<div id="<%= dom_id event %>" class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h4 class="card-title"><%= event.title %></h5>
+    <h5 class="card-title"><%= event.price %></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Le <%= event.start_date %>, à <%= event.location %></h6>
+    <h6 class="card-subtitle mb-2">Durée : <%= event.duration %> heures</h6>
+    <p class="card-text"><%= event.description %></p>
 
-  <p>
-    <strong>Duration:</strong>
-    <%= event.duration %>
-  </p>
-
-  <p>
-    <strong>Title:</strong>
-    <%= event.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= event.description %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= event.price %>
-  </p>
-
-  <p>
-    <strong>Location:</strong>
-    <%= event.location %>
-  </p>
-
+  </div>
 </div>
+

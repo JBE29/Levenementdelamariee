@@ -14,7 +14,7 @@
 <nav class="navbar navbar-expand-lg bg-dark">
   <div class="container-fluid">
     <div  class="navbar-brand">
-      <%=link_to "L'évènement qui luit !", root_path %>
+      <%=link_to "L'évènement qui luit !", root_path, :class => "text-white p-3" %>
     </div>
 
 <!--    <form class="d-flex justify-content-center" role="search">
@@ -32,7 +32,7 @@
             <%= current_user.email%> est connecté.
           </li>
           <li class="nav-item bg-dark ms-5">
-            <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete %>
+            <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, :class => "text-white p-3"%>
           </li>
 
        <!-- <li class="nav-item  ms-3">
@@ -40,7 +40,7 @@
           </li> -->
 
           <li class="nav-item  ms-5">
-            <%= link_to "Editer vos accès", edit_user_registration_path %>
+            <%= link_to "Editer vos accès", edit_user_registration_path , :class => "text-white p-3"%>
           </li>
 
         <% else %>
@@ -48,11 +48,11 @@
             <%= button_to "Créer un évennement", new_user_session_path%>
           </li>
           <li class="nav-item ms-5">
-            <%= link_to "Inscription", new_user_registration_path %>
+            <%= link_to "Inscription", new_user_registration_path, :class => "text-white p-3" %>
           </li>
 
           <li class="nav-item  ms-5">    
-            <%= link_to "Connexion", new_user_session_path %>
+            <%= link_to "Connexion", new_user_session_path, :class => "text-white p-3" %>
           </li>
         <% end %>
       </ul>
@@ -62,7 +62,17 @@
 </nav>
 </header>
 
-  <body>
+  <body class= "bg-warning">
+    <div class= "container bg-light border border-5 border-dark" style= "height: 800px">
     <%= yield %>
+    </div>
+    <footer>
+      <div class="bg-dark fixed-bottom d-flex justify-content-around">
+        <%= link_to "A propos", "https://www.voici.fr/", :class => "nav-link text-white"%>
+        <%= link_to "Carrières", "https://www.pole-emploi.fr/accueil/", :class => "nav-link text-white" %>
+        <%= link_to "Pâtés en croute", "https://www.cyril-nitard.com/pate-croute.html", :class => "nav-link text-white"%>
+        <%= link_to "THP", "https://www.thehackingproject.org/", :class => "nav-link text-white"%>
+      </div>
+    </footer>
   </body>
 </html>
