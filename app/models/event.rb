@@ -4,7 +4,7 @@ class Event < ApplicationRecord
 
     validates :start_date, presence: true
     validates :duration, presence: true
-    validates :title, presence true
+    validates :title, presence: true
     belongs_to :event_admin, class_name: "User"
 
 end
