@@ -2,12 +2,14 @@
 
 <h1>Les évènements à venir</h1>
 
-<div id="events">
+<div class="row mb-5 col" id="events">
   <% @events.each do |event| %>
+  <div class="col">
     <%= render event %>
     <p>
       <%= link_to "Show this event", event %>
     </p>
+  </div>
   <% end %>
 </div>
 
