@@ -41,6 +41,11 @@
     <%= form.text_field :location %>
   </div>
 
+    <div>
+    <p> Administrateur : <%= current_user.id%></p>
+    <%#= current_user.id :event_admin_id %>
+  </div>
+
   <div>
     <%= form.submit %>
   </div>
